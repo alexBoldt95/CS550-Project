@@ -527,6 +527,37 @@ sim_reg_stats(struct stat_sdb_t *sdb)	/* stats database */
   stat_reg_formula(sdb, "sim_inst_rate",
 		   "simulation speed (in insts/sec)",
 		   "sim_num_insn / sim_elapsed_time", NULL);
+<<<<<<< HEAD
+  /*
+  counter_t* policyCounts = givePolicyCounts();
+  counter_t* scores = givescores();
+  */
+
+  stat_reg_counter(sdb, "NMRU uses", "number of times NMRU is used", cache_dl1->policyCounts, cache_dl1->policyCounts[0], NULL);
+  stat_reg_counter(sdb, "fifo uses", "number of times NMRU is used", cache_dl1->policyCounts + sizeof(counter_t), cache_dl1->policyCounts[1], NULL);
+  stat_reg_counter(sdb, "MRU uses", "number of times NMRU is used", cache_dl1->policyCounts + 2 * sizeof(counter_t), cache_dl1->policyCounts[2], NULL);
+  stat_reg_counter(sdb, "rand uses", "number of times NMRU is used", cache_dl1->policyCounts + 3 * sizeof(counter_t), cache_dl1->policyCounts[3], NULL);
+  stat_reg_counter(sdb, "LIFO uses", "number of times NMRU is used", cache_dl1->policyCounts + 4 * sizeof(counter_t), cache_dl1->policyCounts[4], NULL);
+  stat_reg_counter(sdb, "LFU uses", "number of times NMRU is used", cache_dl1->policyCounts + 5 * sizeof(counter_t), cache_dl1->policyCounts[5], NULL);
+
+  stat_reg_counter(sdb, "NMRU score dl1", "score of NMRU at the end", cache_dl1->scores, cache_dl1->scores[0], NULL);
+  stat_reg_counter(sdb, "FIFO score dl1", "score of FIFO at the end", cache_dl1->scores + sizeof(counter_t), cache_dl1->scores[1], NULL);
+  stat_reg_counter(sdb, "MRU score dl1", "score of MRU at the end", cache_dl1->scores + 2 * sizeof(counter_t), cache_dl1->scores[2], NULL);
+  stat_reg_counter(sdb, "RAND score dl1", "score of RAND at the end", cache_dl1->scores + 3 * sizeof(counter_t), cache_dl1->scores[3], NULL);
+  stat_reg_counter(sdb, "LIFO score dl1", "score of LFIO at the end", cache_dl1->scores + 4 * sizeof(counter_t), cache_dl1->scores[4], NULL);
+  stat_reg_counter(sdb, "LFU score dl1", "score of LFU at the end", cache_dl1->scores + 5 * sizeof(counter_t), cache_dl1->scores[5], NULL);
+
+  stat_reg_counter(sdb, "NMRU score for il1", "score of NMRU at the end", cache_il1->scores, cache_il1->scores[0], NULL);
+  stat_reg_counter(sdb, "FIFO scor for il1", "score of FIFO at the end", cache_il1->scores + sizeof(counter_t), cache_il1->scores[1], NULL);
+  stat_reg_counter(sdb, "MRU score for il1", "score of MRU at the end", cache_il1->scores + 2 * sizeof(counter_t), cache_il1->scores[2], NULL);
+  stat_reg_counter(sdb, "RAND score for il1", "score of RAND at the end", cache_il1->scores + 3 * sizeof(counter_t), cache_il1->scores[3], NULL);
+  stat_reg_counter(sdb, "LIFO score for il1", "score of LFIO at the end", cache_il1->scores + 4 * sizeof(counter_t), cache_il1->scores[4], NULL);
+  stat_reg_counter(sdb, "LFU score for il1", "score of LFU at the end", cache_il1->scores + 5 * sizeof(counter_t), cache_il1->scores[5], NULL);
+  
+
+  stat_reg_counter(sdb, "num accesses for dl1", "number of times we access dl1", &(cache_dl1->accesses), cache_dl1->accesses, NULL);
+=======
+>>>>>>> 143fee03e3b1f6700fee8baec817e13201c8a4a3
 
   /* register cache stats */
   if (cache_il1

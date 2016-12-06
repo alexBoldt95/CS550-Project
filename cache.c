@@ -366,6 +366,10 @@ cache_create(char *name,    /* name of the cache */
   cp->replacements = 0;
   cp->writebacks = 0;
   cp->invalidations = 0;
+<<<<<<< HEAD
+  cp->accesses = 0;
+=======
+>>>>>>> 143fee03e3b1f6700fee8baec817e13201c8a4a3
 
   for (int i = 0; i < 6; i++) {
   	cp->scores[i] = 0;
@@ -567,6 +571,10 @@ cache_access(struct cache_t *cp,  /* cache to access */
     fatal("cache: access error: access spans block, addr 0x%08x", addr);
 
   /* permissions are checked on cache misses */
+<<<<<<< HEAD
+	cp->accesses++;
+=======
+>>>>>>> 143fee03e3b1f6700fee8baec817e13201c8a4a3
 
   /* check for a fast hit: access to same block */
   if (CACHE_TAGSET(cp, addr) == cp->last_tagset)
@@ -621,6 +629,15 @@ cache_access(struct cache_t *cp,  /* cache to access */
     for (int i = 0; i < 6; i++) {
       if (evictedInfo->choseToEvict[i] != 0) {
         cp->scores[i] += (maxHistoryTableSize - evictedInfo->value);
+<<<<<<< HEAD
+        if (i == 3) {
+        	int j = 0;
+        } 
+      } 
+      if ((i == 3) && (cp->scores[i] == 0)) {
+      	int j = 0;
+=======
+>>>>>>> 143fee03e3b1f6700fee8baec817e13201c8a4a3
       }
     }
   }

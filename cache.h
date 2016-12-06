@@ -212,9 +212,18 @@ struct cache_t
   counter_t invalidations;	/* total number of external invalidations */
 
   //ECE552
+<<<<<<< HEAD
+           
+  counter_t policyCounts[6];
+  counter_t scores[6];
+  counter_t accesses;
+  //counter_t policyCounts[6];
+
+=======
   counter_t policyCounts[6];
   counter_t scores[6];
   //counter_t policyCounts[6];
+>>>>>>> 143fee03e3b1f6700fee8baec817e13201c8a4a3
   struct victimInfo* historyTableOldest;
   struct victimInfo* historyTableNewest;
   unsigned int historyTableSize;
